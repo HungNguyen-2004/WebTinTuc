@@ -23,9 +23,9 @@
                 new WebInfo
                 {
                     id = 1,
-                    web_name = "Đại Việt Cổ Phong",
-                    web_des = "Trang web chính thức của Đại Việt Cổ Phong",
-                    web_about = "Về Đại Việt Cổ Phong",
+                    web_name = "WebTinTuc",
+                    web_des = "Trang web chính thức của WebTinTuc",
+                    web_about = "Về WebTinTuc",
                 }
                 );
             context.Users.AddOrUpdate(x => x.username,
@@ -33,7 +33,7 @@
                 {
                     username = "admin",
                     password = "0192023A7BBD73250516F069DF18B500", // = admin123
-                    fullname = "ADMIN ĐVCP",
+                    fullname = "ADMIN",
                     userrole = "admin",
                     status = true,
                 }

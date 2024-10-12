@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - Đại Việt Cổ Phong</title>
-    <link rel="icon" href="~/Content/images/dvcp.ico" type="image/x-icon" />
+    <title>@ViewBag.Title</title>
+    <link rel="icon" href="~/Content/web/images/logobaovemt.png" type="image/x-icon" />
     <link href="~/Content/web/styles.css" rel="stylesheet" />
     <link href="~/Content/web/web.css" rel="stylesheet" />
     <meta property="og:type" content="article" />
@@ -30,15 +30,14 @@
             <div class="container">
                 <div class="oflow-hidden color-ash font-9 text-sm-center ptb-sm-5">
 
-                    <ul class="float-left list-a-plr-10 list-a-plr-sm-5 list-a-ptb-15 list-a-ptb-sm-10 toplink">
-                        <li><a class="pl-0 pl-sm-10" href="https://www.facebook.com/groups/Vietnam.ancient">Về chúng tôi</a></li>
-                        <li><a href="https://www.facebook.com/daivietcophong">Liên hệ</a></li>
+                    <ul class="float-left list-a-plr-10 list-a-plr-sm-5 list-a-ptb-15 list-a-ptb-sm-10 toplink">                    
                         @if (Request.IsAuthenticated)
                         {
                             <li>@Html.ActionLink("Admin Panel", "Index", "Admin", null, new { @class = "nav-link" })</li>
                             <li>@Html.ActionLink("Logout", "Logout", "User", null, new { @class = "nav-link" })</li>
                         }
                     </ul>
+                    
                     <div class="d-inline-block float-right mt-2 mr-4">
                         <form action="/tim-kiem" method="get">
                             <input type="text" name="title" placeholder="Tìm kiếm" class="mr-2 txtSearch" /><button class="text-white" type="submit"><i class="fa fa-search"></i></button>
@@ -55,7 +54,7 @@
         </div>
 
         <div class="container back-white">
-            <a class="logo" href="/"><img src="~/Content/web/images/logo-black.png" alt="Logo"></a>
+            <a class="logo" href="/"><img src="~/Content/web/images/logobaovemt.png" alt="Logo"></a>
 
 
             <a class="menu-nav-icon" data-menu="#main-menu" href="#"><i class="ion-navicon"></i></a>
@@ -63,7 +62,7 @@
             <ul class="main-menu2 link" id="main-menu">
                 <li><a href="/">HOME</a></li>
                 <li class="drop-down">
-                    <a href="/trieu-dai">TRIỀU ĐẠI<i class="fa fa-caret-down"></i></a>
+                    <a href="/trieu-dai">LĨNH VỰC<i class="fa fa-caret-down"></i></a>
                     <ul class="drop-down-menu drop-down-inner">
                         @foreach (var i in data.GetEnumShowList().Take(6))
                         {
@@ -82,7 +81,6 @@
                         <li><a href="/danh-muc/">XEM TẤT CẢ</a></li>
                     </ul>
                 </li>
-                <li><a href="/danh-muc/du-an-project-12">PROJECT</a></li>
                 <li><a href="/tim-kiem">TÌM NÂNG CAO</a></li>
 
             </ul>
@@ -104,7 +102,7 @@
                     <div class="col-sm-4">
                         <div class="mb-30">
                             <h5 class="color-primary mb-20"><b>FACEBOOK</b></h5>
-                            <div class="fb-page" data-href="https://www.facebook.com/daivietcophong/" data-tabs="timeline" data-width="" data-height="300" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/daivietcophong/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/daivietcophong/">Đại Việt Cổ Phong - 大越古風 - VietnamAncient</a></blockquote></div>
+                            <div class="fb-page" data-href="https://www.facebook.com" data-tabs="timeline" data-width="" data-height="300" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com">WebTinTuc - Web tin tức</a></blockquote></div>
                         </div><!-- mb-30 -->
                     </div><!-- col-md-4 -->
 
@@ -133,9 +131,9 @@
                     </div><!-- col-md-4 -->
                     <div class="col-sm-4">
                         <div class="mb-30">
-                            <a href="#"><img src="~/Content/web/images/logo-white.png"></a>
+                            <a href="#"><img src="~/Content/web/images/logobaovemt.png" height="120"></a>
                             <p class="mtb-20 color-ccc">
-                                Đại Việt Cổ Phong là hội chuyên nghiên cứu về văn hóa,phong tục,kiến trúc cũng như lịch sử của Việt Nam thời xưa.
+                                WebTinTuc là một trang web chuyên cung cấp các tin tức liên quan đến mọi lĩnh vực trong đời sống hằng ngày và ngoài nước
                             </p>
                             <p class="color-ash">
                                 Copyright &copy;
@@ -153,7 +151,7 @@
 
             <div class="oflow-hidden color-ash font-9 text-sm-center ptb-sm-5">
 
-               
+
 
             </div>
         </div>

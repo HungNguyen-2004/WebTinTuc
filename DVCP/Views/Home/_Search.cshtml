@@ -16,7 +16,7 @@
     <div class="mt-1"></div>
     <div class="collapse pt-2" id="collapseSearch">
         <div class="form-group col-md-7 pl-0 mb-0 pb-0">
-            @Html.Label("Triều đại:", htmlAttributes: new { @class = "control-label col-md-4 pl-0" })
+            @Html.Label("Lĩnh vực:", htmlAttributes: new { @class = "control-label col-md-4 pl-0" })
             <div class="col-md-8 pb-0 mb-0">
                 @Html.EnumDropDownListFor(x => x.Dynasty, new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.Dynasty, "", new { @class = "text-danger" })

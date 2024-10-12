@@ -44,32 +44,26 @@ namespace DVCP.ViewModel
     public enum Dynasty
     {
         //0
-        [Display(Name = "Timeline")]
+        [Display(Name = "Kinh tế")]
         Timeline = 0,
         //1.. etc
-        [Display(Name = "Thời Hồng Bàng")]
+        [Display(Name = "Chính trị")]
         HongBang = 1,
-        [Display(Name = "Nhà Đinh")]
+        [Display(Name = "Giáo dục")]
         Dinh = 2,
-        [Display(Name = "Nhà Tiền Lê")]
+        [Display(Name = "Giải trí")]
         Early_Le = 3,
-        [Display(Name = "Nhà Lý")]
+        [Display(Name = "Văn hóa")]
         Ly = 4,
-        [Display(Name = "Nhà Trần")]
+        [Display(Name = "Thể thao")]
         Tran = 5,
-        [Display(Name = "Nhà Hậu Lê")]
+        [Display(Name = "Công nghệ thông tin")]
         Later_Le = 6,
-        [Display(Name = "Nhà Lê Trung Hưng")]
+        [Display(Name = "Khoa học")]
         LeTrungHung = 7,
-        [Display(Name = "Nhà Tây Sơn")]
-        TaySon = 8,
-        [Display(Name = "Nhà Nguyễn")]
-        Nguyen = 9,
-        [Display(Name = "Triều Khác")]
-        Khac = 10,
     }
-   
-    
+
+
     public class newPostViewModel
     {
         [RequiredSelectListItem(ErrorMessage = "Vui lòng chọn ít nhất 1 tag")]
@@ -78,9 +72,9 @@ namespace DVCP.ViewModel
 
         public int? userid { get; set; }
 
-        
+
         [StringLength(200)]
-        [MinLength(10,ErrorMessage = "Ít nhất 10 ký tự")]
+        [MinLength(10, ErrorMessage = "Ít nhất 10 ký tự")]
         [Required(ErrorMessage = "Vui lòng nhập tiêu đề !")]
         public string post_title { get; set; }
 
@@ -98,7 +92,7 @@ namespace DVCP.ViewModel
         public string post_content { get; set; }
 
         [Range(1, 3, ErrorMessage = "Vui lòng chọn đúng kiểu bài viết!")]
-        [Required(ErrorMessage ="Vui lòng chọn kiểu bài viết!")]
+        [Required(ErrorMessage = "Vui lòng chọn kiểu bài viết!")]
         public PostType post_type { get; set; }
 
 

@@ -15,8 +15,8 @@ namespace DVCP.Controllers
         public ActionResult Index()
         {
             ViewBag.Title = db.infoRepository.FindByID(1).web_name;
-            return View(db.postRepository.AllPosts().Where(m=>m.status==true)
-                .OrderByDescending(m=>m.create_date).Take(7).ToList());
+            return View(db.postRepository.AllPosts().Where(m => m.status == true)
+                .OrderByDescending(m => m.create_date).Take(7).ToList());
         }
 
         public ActionResult About()
@@ -29,7 +29,7 @@ namespace DVCP.Controllers
         {
             return View();
         }
-        
+
 
         public ActionResult Contact()
         {
@@ -39,7 +39,7 @@ namespace DVCP.Controllers
         }
         public ActionResult ViewPost(string title)
         {
-            if(!String.IsNullOrWhiteSpace(title))
+            if (!String.IsNullOrWhiteSpace(title))
             {
                 Post p = db.postRepository.FindBySlug(title);
                 if (p != null)
@@ -79,7 +79,7 @@ namespace DVCP.Controllers
         }
         public ActionResult Category(int? id, int? page)
         {
-            if(id!=null)
+            if (id != null)
             {
                 int pageSize = 15;
                 int pageIndex = 1;
@@ -94,9 +94,9 @@ namespace DVCP.Controllers
                             // instance from context
                             from a in conn.Tags
                                 // instance from navigation property
-                        from b in a.Tbl_POST
-                            //join to bring useful data
-                        join c in conn.Posts on b.post_id equals c.post_id
+                            from b in a.Tbl_POST
+                                //join to bring useful data
+                            join c in conn.Posts on b.post_id equals c.post_id
                             where a.TagID == id && b.status == true
                             orderby b.create_date descending
                             select new lstPostViewModel
@@ -121,7 +121,7 @@ namespace DVCP.Controllers
         }
         public ActionResult Dynasty(int? dynasty, int? page)
         {
-            if(dynasty != null)
+            if (dynasty != null)
             {
                 int pageSize = 10;
                 int pageIndex = 1;
@@ -148,11 +148,11 @@ namespace DVCP.Controllers
                 return View(post);
             }
             return View("DynastyAll");
-            
+
 
         }
 
-        public ActionResult Search(SearchViewModel model,int? page)
+        public ActionResult Search(SearchViewModel model, int? page)
         {
             int pageSize = 8;
             int pageIndex = 1;
@@ -167,7 +167,7 @@ namespace DVCP.Controllers
             bool tag = taglist.Count == 0;
             bool dynasty = model.Dynasty == null;
             var check = 0;
-            if(title && tag &&  dynasty)
+            if (title && tag && dynasty)
             {
                 // cả 3 cái đều null
                 check = 1;
@@ -177,12 +177,12 @@ namespace DVCP.Controllers
                 // cả 3 cái đều ko null
                 check = 2;
             }
-            else if(!title && tag && dynasty)
+            else if (!title && tag && dynasty)
             {
                 // chỉ title
                 check = 3;
             }
-            else if(title && !tag && dynasty)
+            else if (title && !tag && dynasty)
             {
                 // chỉ tag
                 check = 4;
@@ -234,11 +234,11 @@ namespace DVCP.Controllers
                         var query = (
                             // instance from context
                             from z in taglist
-                            // join list tìm kiếm
+                                // join list tìm kiếm
                             join a in conn.Tags on z.TagID equals a.TagID
                             // instance from navigation property
                             from b in a.Tbl_POST
-                            // join to bring useful data
+                                // join to bring useful data
                             join c in conn.Posts on b.post_id equals c.post_id
                             where c.status == true
                             where c.dynasty == model.Dynasty.ToString()
@@ -298,11 +298,11 @@ namespace DVCP.Controllers
                         post = (
                             // instance from context
                             from z in taglist
-                            // join list tìm kiếm
+                                // join list tìm kiếm
                             join a in conn.Tags on z.TagID equals a.TagID
                             // instance from navigation property
                             from b in a.Tbl_POST
-                            //join to bring useful data
+                                //join to bring useful data
                             join c in conn.Posts on b.post_id equals c.post_id
                             where c.status == true
                             // sắp theo ngày đăng mới nhất
@@ -330,7 +330,7 @@ namespace DVCP.Controllers
                                 create_date = c.create_date,
                                 tagsname = c.TagName,
                                 slug = c.post_slug
-                                
+
                             })
                             .ToPagedList(pageIndex, pageSize);
                     }
@@ -359,7 +359,7 @@ namespace DVCP.Controllers
                         post = (
                             // instance from context
                             from z in taglist
-                            // join list tìm kiếm
+                                // join list tìm kiếm
                             join a in conn.Tags on z.TagID equals a.TagID
                             // instance from navigation property
                             from b in a.Tbl_POST
@@ -411,8 +411,8 @@ namespace DVCP.Controllers
                      ViewCount = m.ViewCount,
                      AvatarImage = m.AvatarImage,
                      create_date = m.create_date,
-                    tagsname = m.Tbl_Tags.FirstOrDefault().TagName,
-                    slug = m.post_slug
+                     tagsname = m.Tbl_Tags.FirstOrDefault().TagName,
+                     slug = m.post_slug
                  }
                  ).ToPagedList(pageIndex, pageSize);
                     break;
@@ -461,7 +461,7 @@ namespace DVCP.Controllers
                     break;
 
             }
-            
+
             return View(post);
         }
     }

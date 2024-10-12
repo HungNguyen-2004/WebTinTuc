@@ -1,4 +1,4 @@
-namespace DVCP.Models
+﻿namespace DVCP.Models
 {
     using System;
     using System.Collections.Generic;
@@ -34,6 +34,11 @@ namespace DVCP.Models
 
         public bool status { get; set; }
 
+        // Trường để lưu số lần đăng nhập thất bại
+        public int FailedLoginAttempts { get; set; }
+
+        // Thời điểm tạm khóa tài khoản (khi nhập sai quá số lần cho phép)
+        public DateTime? LockoutEndTime { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Post> Tbl_POST { get; set; }
     }
